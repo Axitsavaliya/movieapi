@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<table border="1">
+    <thead>
+        <th>id</th>
+        <th>movie</th>
+        <th>rating</th>
+    </thead>
+    <tbody id="tbody">
+
+    </tbody>
+</table>
+<body>
+   <script>
+    fetch("https://dummyapi.online/api/movies").then((res) =>{
+        console.log(res);
+        res.json().then((demo)=>{
+            demo.map((val)=>{
+                let tr=document.createElement('tr')
+                tr.innerHTML=`
+                <td>${val.id}</td>
+                <td>${val.movie}</td>
+                <td>${val.rating}</td>
+                ` 
+                tbody.appendChild(tr)
+            })
+        })
+    })
+   </script>
+</body>
+
+</html>
